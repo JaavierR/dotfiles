@@ -10,6 +10,10 @@ alias cat="bat"
 
 # Git
 alias gs="git status -sb"
+alias gaa="git add -A"
+alias gco="git checkout"
+alias gp="git push"
+alias gl="git pull"
 
 # pnpm
 set -gx PNPM_HOME "/home/javier/.local/share/pnpm"
