@@ -15,6 +15,9 @@ alias gco="git checkout"
 alias gp="git push"
 alias gl="git pull"
 
+# Laravel
+alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
+
 # pnpm
 set -gx PNPM_HOME "/home/javier/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
