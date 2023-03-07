@@ -1,9 +1,9 @@
--- Space is my leader.
+-- Space is my Leader.
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Go to Vim Explorer
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<Leader>pv", vim.cmd.Ex)
 
 -- When text is wrapped, move by terminal rows, not lines, unless a count is provided.
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true }) 
@@ -21,7 +21,10 @@ vim.keymap.set("v", "y", "myy`y")
 vim.keymap.set("v", "q:", ":q")
 
 -- Paste replace visual selection without copying it.
-vim.keymap.set("v", "p", "_dP")
+-- vim.keymap.set("v", "p", "_dP")
+--
+-- The Prime way
+vim.keymap.set("x", "<Leader>p", "\"_dP")
 
 -- Easy insertion of a trailing ; or , from insert mode.
 vim.keymap.set("i", ";;", "<Esc>A;")
@@ -34,10 +37,27 @@ vim.keymap.set("n", "<Leader>k", ":nohlsearch<CR>")
 vim.keymap.set("n", "<Leader>x", ":!xdg-open %<CR><CR>")
 
 -- Move lines up and down
-vim.keymap.set('i', '<A-j>', '<Esc>:move .+1<CR>==gi')
-vim.keymap.set('i', '<A-k>', '<Esc>:move .-2<CR>==gi')
-vim.keymap.set('n', '<A-j>', ':move .+1<CR>==')
-vim.keymap.set('n', '<A-k>', ':move .-2<CR>==')
-vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
-vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
+vim.keymap.set("i", "<A-j>", "<Esc>:move .+1<CR>==gi")
+vim.keymap.set("i", "<A-k>", "<Esc>:move .-2<CR>==gi")
+vim.keymap.set("n", "<A-j>", ":move .+1<CR>==")
+vim.keymap.set("n", "<A-k>", ":move .-2<CR>==")
+vim.keymap.set("v", "<A-j>", ":move '>+1<CR>gv=gv")
+vim.keymap.set("v", "<A-k>", ":move '<-2<CR>gv=gv")
+
+-- ThePrime
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("n", "<Leader>y", "\"+y")
+vim.keymap.set("v", "<Leader>y", "\"+y")
+vim.keymap.set("n", "<Leader>Y", "\"+Y")
+
+vim.keymap.set("n", "<Leader>d", "\"_d")
+vim.keymap.set("v", "<Leader>d", "\"_d")
+
+-- No Q
+vim.keymap.set("n", "q", "<nop>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
