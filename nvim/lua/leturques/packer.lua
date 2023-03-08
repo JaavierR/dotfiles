@@ -39,6 +39,19 @@ use 'tpope/vim-commentary'
 -- Add, change, and delete surrounding text.
 use 'tpope/vim-surround'
 
+-- Fuzzy finder
+use({
+    'nvim-telescope/telescope.nvim',
+    requires = {
+        'nvim-lua/plenary.nvim',
+        'kyazdani42/nvim-web-devicons',
+        { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    },
+    config = function()
+        require('telescope').setup()
+    end,
+})
+
 
 -- End of plugins
 vim.cmd([[
