@@ -85,6 +85,25 @@ use({
     end,
   })
 
+-- Git integration.
+use({
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+      vim.keymap.set('n', ']h', ':Gitsigns next_hunk<CR>')
+      vim.keymap.set('n', '[h', ':Gitsigns prev_hunk<CR>')
+      vim.keymap.set('n', 'gs', ':Gitsigns stage_hunk<CR>')
+      vim.keymap.set('n', 'gS', ':Gitsigns undo_stage_hunk<CR>')
+      vim.keymap.set('n', 'gp', ':Gitsigns preview_hunk<CR>')
+      vim.keymap.set('n', 'gB', ':Gitsigns blame_line<CR>')
+    end
+  })
+
+-- Git commands
+use({
+    'tpope/vim-fugitive',
+    requires = 'tpope/vim-rhubarb',
+  })
 
 -- End of plugins
 vim.cmd([[
