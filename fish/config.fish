@@ -1,11 +1,4 @@
-source ~/.config/fish/alias.fish
-
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
-
-# Configure Jump
-status --is-interactive; 
+set fish_greeting ""
 
 # Fish syntax highlighting
 set -g fish_color_autosuggestion '555'  'brblack'
@@ -30,6 +23,24 @@ set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
 set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
 
+alias cat="bat"
+alias vim="nvim"
+alias lla="ls -la"
+
+# Git alias
+alias g="git"
+alias gaa="git add -A"
+alias gs="git status -sb"
+alias gl="git pull"
+alias gf="git fetch --prune"
+alias gp="git push"
+alias gco="git checkout"
+alias gcm="git commit -m"
+
+# Docker
+alias d="docker"
+alias dc="docker compose"
+
 # Install Starship
 starship init fish | source
 
@@ -39,3 +50,5 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+fish_ssh_agent
