@@ -76,6 +76,15 @@ use({
     end,
   })
 
+-- Status line.
+use({
+    'nvim-lualine/lualine.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('lualine').setup()
+    end,
+  })
+
 
 -- End of plugins
 vim.cmd([[
