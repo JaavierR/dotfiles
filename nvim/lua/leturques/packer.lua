@@ -38,6 +38,8 @@ use({
         })
 
       vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
+
+      vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
     end,
   })
 
@@ -82,6 +84,14 @@ use({
     config = function()
       require('leturques/plugins/nvim-tree')
     end,
+  })
+
+-- Display indentation lines.
+use({
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('leturques/plugins/indent-blankline')
+    end
   })
 
 -- Status line.
