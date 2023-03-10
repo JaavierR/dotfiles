@@ -135,6 +135,18 @@ use({
     end
   })
 
+-- Language Server Protocol
+use({
+    'neovim/nvim-lspconfig',
+    requires = {
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+    },
+    config = function()
+      require('leturques/plugins/lspconfig')
+    end,
+  })
+
 -- End of plugins
 vim.cmd([[
     augroup packer_user_config
