@@ -55,6 +55,14 @@ use 'sheerun/vim-polyglot'
 -- Navigate seamlessly between Vim windows and Tmux panes
 use('christoomey/vim-tmux-navigator')
 
+-- Automatically fix indentation when pasting code.
+use({
+  'sickill/vim-pasta',
+  config = function()
+    vim.g.pasta_disabled_filetypes = { 'fugitive' }
+  end,
+})
+
 -- All closing buffers without closing the split window.
 use({
   'famiu/bufdelete.nvim',
