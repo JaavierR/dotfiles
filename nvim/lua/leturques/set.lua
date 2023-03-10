@@ -39,7 +39,7 @@ vim.opt.sidescrolloff = 8
 
 vim.opt.confirm = true -- ask for confirmation instead of erroring
 
-vim.opt.signcolumn = 'yes:2'
+vim.opt.signcolumn = 'yes:1'
 
 vim.opt.undofile = true -- persistent undo
 -- vim.opt.backup = true -- automatically save a backup file
