@@ -53,6 +53,14 @@ use 'sheerun/vim-polyglot'
 -- Navigate seamlessly between Vim windows and Tmux panes
 use('christoomey/vim-tmux-navigator')
 
+-- All closing buffers without closing the split window.
+use({
+  'famiu/bufdelete.nvim',
+  config = function()
+    vim.keymap.set('n', '<Leader>q', ':Bdelete<CR>')
+  end,
+})
+
 -- Fuzzy finder
 use({
     'nvim-telescope/telescope.nvim',
