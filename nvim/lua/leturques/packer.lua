@@ -120,6 +120,21 @@ use({
     end
   })
 
+-- Improved syntax highlighting with tree-sitter
+use({
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      require('nvim-treesitter.install').update({ with_sync = true })
+    end,
+    requires = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    config = function()
+      require('leturques/plugins/treesitter')
+    end
+  })
+
 -- End of plugins
 vim.cmd([[
     augroup packer_user_config
