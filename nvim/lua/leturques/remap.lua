@@ -50,9 +50,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Paste
-vim.keymap.set("n", "<Leader>p", "\"+p")
-
 -- Copy
 vim.keymap.set("n", "<Leader>y", "\"+y")
 vim.keymap.set("v", "<Leader>y", "\"+y")
