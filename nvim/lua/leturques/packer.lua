@@ -155,6 +155,7 @@ use({
     requires = {
       'JoosepAlviste/nvim-ts-context-commentstring',
       'nvim-treesitter/nvim-treesitter-textobjects',
+      'b0o/schemastore.nvim',
     },
     config = function()
       require('leturques/plugins/treesitter')
@@ -172,6 +173,23 @@ use({
       require('leturques/plugins/lspconfig')
     end,
   })
+
+-- Completion
+use({
+  'hrsh7th/nvim-cmp',
+  requires = {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
+    'onsails/lspkind-nvim',
+  },
+  config = function()
+    require('leturques/plugins/cmp')
+  end,
+})
 
 -- End of plugins
 vim.cmd([[
