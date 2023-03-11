@@ -150,6 +150,8 @@ use({
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'b0o/schemastore.nvim',
+    'jose-elias-alvarez/null-ls.nvim',
+    'jayp0521/mason-null-ls.nvim',
   },
   config = function()
     require('leturques/plugins/lspconfig')
