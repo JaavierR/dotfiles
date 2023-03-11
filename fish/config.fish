@@ -36,6 +36,7 @@ alias gf="git fetch --prune"
 alias gp="git push"
 alias gco="git checkout"
 alias gcm="git commit -m"
+alias glog="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
 
 # Docker
 alias d="docker"
