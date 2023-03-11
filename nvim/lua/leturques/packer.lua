@@ -29,7 +29,7 @@ use({
 })
 
 -- Commenting support.
--- use 'tpope/vim-commentary'
+use 'tpope/vim-commentary'
 
 -- Add, change, and delete surrounding text.
 use 'tpope/vim-surround'
