@@ -22,29 +22,14 @@ use 'wbthomason/packer.nvim'
 
 -- One Dark Theme.
 use({
-  'jessarcher/onedark.nvim',
+  'navarasu/onedark.nvim',
   config = function()
-    vim.cmd('colorscheme onedark')
-
-    vim.api.nvim_set_hl(0, 'FloatBorder', {
-      fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
-      bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
-    })
-
-    -- Make the cursor line bg invisible
-    vim.api.nvim_set_hl(0, 'CursorLineBg', {
-      fg= vim.api.nvim_get_hl_by_name('CursorLine', true).background,
-      bg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
-    })
-
-    vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
-
-    vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
+    require('leturques/plugins/onedark')
   end,
 })
 
 -- Commenting support.
-use 'tpope/vim-commentary'
+-- use 'tpope/vim-commentary'
 
 -- Add, change, and delete surrounding text.
 use 'tpope/vim-surround'
@@ -139,10 +124,6 @@ use({
     vim.g.floaterm_height = 0.8
     vim.keymap.set('n', '<F1>', ':FloatermToggle<CR>')
     vim.keymap.set('t', '<F1>', '<C-\\><C-n>:FloatermToggle<CR>')
-    vim.cmd([[
-        highlight link Floaterm CursorLine
-        highlight link FloatermBorder CursorLineBg
-        ]])
   end
 })
 
