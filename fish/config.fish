@@ -38,6 +38,9 @@ alias gco="git checkout"
 alias gcm="git commit -m"
 alias glog="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
 
+# Laravel
+alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
+
 # Docker
 alias d="docker"
 alias dc="docker compose"
