@@ -96,6 +96,14 @@ use({
   end,
 })
 
+-- Add a dashboard
+use({
+  'glepnir/dashboard-nvim',
+  config = function()
+    require('leturques/plugins/dashboard-nvim')
+  end
+})
+
 -- Git integration.
 use({
   'lewis6991/gitsigns.nvim',
