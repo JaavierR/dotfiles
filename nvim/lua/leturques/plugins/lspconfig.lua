@@ -23,7 +23,7 @@ lsp.configure('lua-language-server', {
 })
 
 lsp.configure('volar', {
-  filetype = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 })
 
 lsp.configure('jsonls', {
