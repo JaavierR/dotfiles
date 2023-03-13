@@ -34,6 +34,9 @@ use 'tpope/vim-commentary'
 -- Add, change, and delete surrounding text.
 use 'tpope/vim-surround'
 
+-- Automatically create parent dirs when saving.
+use('jessarcher/vim-heritage')
+
 -- Add more languages.
 use 'sheerun/vim-polyglot'
 
