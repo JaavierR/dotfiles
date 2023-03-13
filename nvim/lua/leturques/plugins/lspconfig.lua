@@ -35,7 +35,13 @@ lsp.configure('jsonls', {
 })
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local luasnip = require('luasnip')
+local lspkind = require('lspkind')
+
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+require('luasnip/loaders/from_snipmate').lazy_load()
+
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
