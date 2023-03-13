@@ -43,17 +43,61 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 require('luasnip/loaders/from_snipmate').lazy_load()
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  -- ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+  -- ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+  -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
   ["<C-Space>"] = cmp.mapping.complete(),
+  ["<Tab>"] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.select_next_item()
+    elseif luasnip.expand_or_jumpable() then
+      luasnip.expand_or_jump()
+    elseif has_words_before() then
+      cmp.complete()
+    else
+      fallback()
+    end
+  end, { "i", "s" }),
+  ["<S-Tab>"] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.select_prev_item()
+    elseif luasnip.jumpable(-1) then
+      luasnip.jump(-1)
+    else
+      fallback()
+    end
+  end, { "i", "s" }),
+  ['<CR>'] = cmp.mapping.confirm({ select = true }),
 })
 
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
+-- Primeagen config
+-- cmp_mappings['<Tab>'] = nil
+-- cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  formatting = { format = lspkind.cmp_format() },
+  mapping = cmp_mappings,
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
+    { name = 'luasnip' },
+    { name = 'buffer' },
+    { name = 'path' },
+  },
+  documentation = {
+    max_height = 40,
+    max_width = 60,
+    border = 'rounded',
+    col_offset = 0,
+    side_padding = 1,
+    winhighlight = 'Normal:TelescopeNormal,FloatBorder:TelescopePreviewBorder,CursorLine:Visual,Search:None',
+    zindex = 1001
+  }
 })
 
 lsp.set_preferences({
@@ -87,7 +131,7 @@ require('null-ls').setup({
 require('mason-null-ls').setup({ automatic_installation = true })
 
 lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -112,4 +156,7 @@ vim.diagnostic.config({
     source = true
   }
 })
+
+-- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
+-- vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 
