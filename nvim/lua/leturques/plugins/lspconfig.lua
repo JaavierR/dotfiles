@@ -148,7 +148,7 @@ end)
 lsp.setup()
 
 -- Commands
-vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, {})
+vim.api.nvim_create_user_command("Format", function() vim.lsp.buf.format({ async = true }) end, {})
 
 vim.diagnostic.config({
   virtual_text = false,
