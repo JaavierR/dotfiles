@@ -9,7 +9,7 @@ else
     # selected=$(find ~/developer -mindepth 1 -maxdepth 2 -type d | fzf)
     items=$(find ~/developer -mindepth 1 -maxdepth 2 -type d)
     items+=`echo -e "\n/tmp"`
-    selected=$(echo "$items" | fzf)
+    selected=$(echo "$items" | fzf-tmux -p)
 fi
 
 if [[ -z $selected ]]; then
