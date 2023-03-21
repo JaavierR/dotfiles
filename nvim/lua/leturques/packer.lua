@@ -20,13 +20,22 @@ local use = require('packer').use
 -- Packer can manage itself
 use 'wbthomason/packer.nvim'
 
--- One Dark Theme.
+-- Catppuccin Theme
 use({
-  'navarasu/onedark.nvim',
+  "catppuccin/nvim",
+  as = "catppuccin",
   config = function()
-    require('leturques/plugins/onedark')
-  end,
+    require('leturques/plugins/catppuccin')
+  end
 })
+
+-- One Dark Theme.
+-- use({
+--   'navarasu/onedark.nvim',
+--   config = function()
+--     require('leturques/plugins/onedark')
+--   end,
+-- })
 
 -- Commenting support.
 use 'tpope/vim-commentary'
