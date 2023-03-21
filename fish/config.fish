@@ -29,6 +29,7 @@ alias lla="ls -la"
 
 # Git alias
 alias g="git"
+alias ga="git add"
 alias gaa="git add -A"
 alias gs="git status -sb"
 alias gl="git pull"
