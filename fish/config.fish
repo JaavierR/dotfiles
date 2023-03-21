@@ -25,7 +25,8 @@ set -g fish_color_valid_path --underline
 
 alias cat="bat"
 alias vim="nvim"
-alias lla="ls -la"
+alias lla="exa -la"
+alias ltree="exa --tree"
 
 # Git alias
 alias g="git"
