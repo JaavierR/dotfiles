@@ -49,11 +49,10 @@ local has_words_before = function()
 end
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  -- ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  -- ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
-  ["<Tab>"] = cmp.mapping(function(fallback)
+  ["<C-l>"] = cmp.mapping(cmp.mapping.complete({
+    reason = cmp.ContextReason.Auto,
+  }), { "i", "c" }),
+  ["<C-n>"] = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
     elseif luasnip.expand_or_jumpable() then
@@ -64,7 +63,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
       fallback()
     end
   end, { "i", "s" }),
-  ["<S-Tab>"] = cmp.mapping(function(fallback)
+  ["<C-p>"] = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_prev_item()
     elseif luasnip.jumpable(-1) then
@@ -77,8 +76,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 
 -- Primeagen config
--- cmp_mappings['<Tab>'] = nil
--- cmp_mappings['<S-Tab>'] = nil
+cmp_mappings['<Tab>'] = nil
+cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
   snippet = {
@@ -103,7 +102,7 @@ lsp.setup_nvim_cmp({
     side_padding = 1,
     winhighlight = 'Normal:TelescopeNormal,FloatBorder:TelescopePreviewBorder,CursorLine:Visual,Search:None',
     zindex = 1001
-  }
+  },
 })
 
 lsp.set_preferences({
