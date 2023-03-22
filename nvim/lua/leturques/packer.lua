@@ -37,6 +37,9 @@ use({
 --   end,
 -- })
 
+-- Copilot
+use({'github/copilot.vim'})
+
 -- Commenting support.
 use 'tpope/vim-commentary'
 
