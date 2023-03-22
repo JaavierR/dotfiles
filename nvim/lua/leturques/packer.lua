@@ -49,8 +49,8 @@ use('tpope/vim-eunuch')
 -- Pairs of handy bracket mappings, like [b and ]b.
 use('tpope/vim-unimpaired')
 
--- Indent autodetection with editorconfig support.
-use('tpope/vim-sleuth')
+-- -- Indent autodetection with editorconfig support.
+-- use('tpope/vim-sleuth')
 
 -- Automatically create parent dirs when saving.
 use('jessarcher/vim-heritage')
