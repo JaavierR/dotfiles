@@ -40,6 +40,14 @@ use({
 -- Copilot
 use({'github/copilot.vim'})
 
+-- vim-grepper
+use({
+  'mhinz/vim-grepper',
+  config = function()
+    vim.keymap.set('n', '<Leader>R', ':Grepper -tool rg -query <CR>')
+  end
+})
+
 -- Commenting support.
 use 'tpope/vim-commentary'
 
