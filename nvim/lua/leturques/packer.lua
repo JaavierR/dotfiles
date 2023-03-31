@@ -18,7 +18,7 @@ local use = require('packer').use
 
 
 -- Packer can manage itself
-use 'wbthomason/packer.nvim'
+use('wbthomason/packer.nvim')
 
 -- Catppuccin Theme
 use({
@@ -49,10 +49,10 @@ use({
 })
 
 -- Commenting support.
-use 'tpope/vim-commentary'
+use('tpope/vim-commentary')
 
 -- Add, change, and delete surrounding text.
-use 'tpope/vim-surround'
+use('tpope/vim-surround')
 
 -- Useful commands like :Rename and :SudoWrite.
 use('tpope/vim-eunuch')
@@ -67,7 +67,7 @@ use('tpope/vim-unimpaired')
 use('jessarcher/vim-heritage')
 
 -- Add more languages.
-use 'sheerun/vim-polyglot'
+use('sheerun/vim-polyglot')
 
 -- Navigate seamlessly between Vim windows and Tmux panes
 use('christoomey/vim-tmux-navigator')
