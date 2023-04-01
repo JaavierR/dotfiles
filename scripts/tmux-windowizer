@@ -1,13 +1,26 @@
 #!/usr/bin/env bash
 
-selected=$(tmux list-sessions -F '#{?session_attached,,#{session_name}}' |\
-    sed '/^$/d' |\
-    fzf --header jump-to-session --height 100% --preview 'tmux capture-pane -pt {1}' --preview-window=right:50%
-)
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    selected=$(tmux list-sessions -F '#{#{session_name}}' |\
+        sed '/^$/d' |\
+        fzf --header jump-to-session --height 100% --preview 'tmux capture-pane -pt {1}' --preview-window=right:50%
+    )
+else
+    selected=$(tmux list-sessions -F '#{?session_attached,,#{session_name}}' |\
+        sed '/^$/d' |\
+        fzf --header jump-to-session --height 100% --preview 'tmux capture-pane -pt {1}' --preview-window=right:50%
+    )
+fi
+
 
 if [[ -z $selected ]]; then
     exit 0
 fi
 
-tmux switch-client -t $selected
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux a -t $selected
+else
+    tmux switch-client -t $selected
+fi
 
