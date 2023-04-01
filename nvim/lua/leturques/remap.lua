@@ -61,5 +61,5 @@ vim.keymap.set("v", "<Leader>d", "\"_d")
 -- No Q
 vim.keymap.set("n", "q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux popup -E tmux-sessionizer<CR>")
-vim.keymap.set("n", "<C-j>", "<cmd>silent !tmux popup -E tmux-windowizer<CR>")
+vim.keymap.set("n", "<C-s>", "<cmd>silent !tmux popup -E tmux-windowizer<CR>")
 
