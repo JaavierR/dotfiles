@@ -1,32 +1,31 @@
 local custom_highlights = {
-    FloatBorder = { fg = "#31353F", bg = "#31353F"},
-
+    Normal = { bg = "none" },
+    NormalFloat = { bg = "none" },
+    FloatBorder = { fg = "#31353F", bg = "none" },
     -- Telescope
-    TelescopeNormal = { bg = "#262626" },
-    TelescopePromptNormal = { fg = "#E7E5E4", bg = "#212121" },
-    TelescopePromptBorder = { fg = "#212121", bg = "#212121" },
-    TelescopePreviewBorder = { fg = "#262626", bg = "#262626" },
-    TelescopeResultsBorder = { fg = "#262626", bg = "#262626" },
-
-    TelescopeSelection = { bg = "#44403C" },
-
-    TelescopeTitle = { fg = "#78716C", bg = "#262626" },
-    TelescopePromptTitle = { fg = "#78716C", bg = "#262626" },
-    TelescopeResultsTitle = { fg = "#78716C", bg = "#262626" },
+    TelescopeNormal = { bg = "none" },
+    TelescopePromptNormal = { fg = "#E7E5E4", bg = "none" },
+    TelescopePromptBorder = { fg = "#383B51", bg = "none" },
+    TelescopePreviewBorder = { fg = "#383B51", bg = "none" },
+    TelescopeResultsBorder = { fg = "#383B51", bg = "none" },
+    -- Selection
+    TelescopeSelection = { bg = "#35374b" },
+    -- Titles
+    TelescopeTitle = { fg = "#A8A29E", bg = "none" },
+    TelescopePromptTitle = { fg = "#A8A29E", bg = "none" },
+    TelescopeResultsTitle = { fg = "#A8A29E", bg = "none" },
     TelescopePreviewTitle = { fg = "#121212", bg = "#0D9488" },
-
     -- Floaterm
-    Floaterm = { bg = "#262626" },
-    FloatermBorder = { fg = "#262626", bg = "#262626" },
-
+    Floaterm = { bg = "none" },
+    FloatermBorder = { fg = "#383B51", bg = "none" },
     -- NvimTree
-    NvimTreeIndentMarker = { fg = "#30323E" },
-
+    NvimTreeIndentMarker = { fg = "#383B51" },
     -- IndentBlank
-    IndentBlanklineChar = { fg = "#2F313C" },
+    IndentBlanklineChar = { fg = "#383B51" },
 }
 
 require('catppuccin').setup({
+    transparent_background = true,
     flavour = 'frappe',
     highlight_overrides = {
         all = function()
@@ -36,4 +35,3 @@ require('catppuccin').setup({
 })
 
 vim.cmd.colorscheme 'catppuccin'
-
