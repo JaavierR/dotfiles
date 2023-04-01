@@ -60,6 +60,6 @@ vim.keymap.set("v", "<Leader>d", "\"_d")
 
 -- No Q
 vim.keymap.set("n", "q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux popup -E tmux-sessionizer<CR>")
-vim.keymap.set("n", "<C-s>", "<cmd>silent !tmux popup -E tmux-windowizer<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux popup -T ' project-switcher ' -E tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-s>", "<cmd>silent !tmux popup -T ' active-session-switcher ' -E tmux-windowizer<CR>")
 
