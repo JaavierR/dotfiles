@@ -6,7 +6,7 @@ vim.cmd [[packadd packer.nvim]]
 -- Personalization for packer like popup window on packer
 require('packer').reset()
 require('packer').init({
-  compile_path = vim.fn.stdpath('data')..'/site/plugin/packer_compiled.lua',
+  compile_path = vim.fn.stdpath('data') .. '/site/plugin/packer_compiled.lua',
   display = {
     open_fn = function()
       return require('packer.util').float({ border = 'solid' })
@@ -38,7 +38,7 @@ use({
 -- })
 
 -- Copilot
-use({'github/copilot.vim'})
+use({ 'github/copilot.vim' })
 
 -- vim-grepper
 use({
@@ -180,7 +180,8 @@ use({
 -- Floating terminal.
 use({
   'voldikss/vim-floaterm',
-  config = function ()
+  config = function()
+    vim.g.floaterm_borderchars = ''
     vim.g.floaterm_width = 0.8
     vim.g.floaterm_height = 0.8
     vim.keymap.set('n', '<F1>', ':FloatermToggle<CR>')
@@ -225,7 +226,7 @@ use({
     'onsails/lspkind-nvim',
 
     -- Snippets
-    'L3MON4D3/LuaSnip',             -- Required
+    'L3MON4D3/LuaSnip', -- Required
   },
   config = function()
     require('leturques/plugins/lspconfig')
