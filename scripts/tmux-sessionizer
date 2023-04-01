@@ -6,10 +6,9 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    # selected=$(find ~/developer -mindepth 1 -maxdepth 2 -type d | fzf)
     items=$(find ~/developer -mindepth 1 -maxdepth 2 -type d)
     items+=`echo -e "\n/tmp"`
-    selected=$(echo "$items" | fzf)
+    selected=$(echo "$items" | fzf --header jump-to-project --height 100%)
 fi
 
 if [[ -z $selected ]]; then
