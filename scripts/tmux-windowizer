@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-selected=$(tmux list-sessions | sed -E 's/:.*$//' | rg -v $(tmux display-message -p '#S') | fzf)
+selected=$(tmux list-sessions -F '#{?session_attached,,#{session_name}}' |\
+    sed '/^$/d' |\
+    fzf --header jump-to-session --height 100% --preview 'tmux capture-pane -pt {1}' --preview-window=right:50%
+)
 
 if [[ -z $selected ]]; then
     exit 0
