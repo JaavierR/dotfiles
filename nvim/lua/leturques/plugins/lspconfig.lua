@@ -12,7 +12,7 @@ lsp.ensure_installed({
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
+lsp.configure('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
@@ -88,7 +88,7 @@ lsp.setup_nvim_cmp({
   formatting = { format = lspkind.cmp_format() },
   mapping = cmp_mappings,
   sources = {
-    { name = 'nvim_lsp', max_item_count = 200 },
+    { name = 'nvim_lsp',               max_item_count = 200 },
     { name = 'nvim_lsp_signature_help' },
     { name = 'luasnip' },
     { name = 'buffer' },
@@ -158,8 +158,9 @@ lsp.setup()
 
 -- Commands
 vim.api.nvim_create_user_command("Format", function()
-  vim.lsp.buf.format({ async = true,
-  filter = function(client)
+  vim.lsp.buf.format({
+    async = true,
+    filter = function(client)
       return client.name ~= "volar"
     end,
   })
@@ -171,4 +172,3 @@ vim.diagnostic.config({
     source = true
   }
 })
-
