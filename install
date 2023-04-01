@@ -13,8 +13,13 @@ ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
 mkdir -p $HOME/.local/bin
 
+# Install script to show in fzf the avaible tmux projects.
 rm -rf $HOME/.local/bin/tmux-sessionizer
 ln -s $DOTFILES/scripts/tmux-sessionizer $HOME/.local/bin/tmux-sessionizer
+
+# Install script to show in fzf the avaible tmux sessions.
+rm -rf $HOME/.local/bin/tmux-windowizer
+ln -s $DOTFILES/scripts/tmux-windowizer $HOME/.local/bin/tmux-windowizer
 
 rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
