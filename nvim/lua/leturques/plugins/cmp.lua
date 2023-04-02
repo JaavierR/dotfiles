@@ -56,4 +56,9 @@ cmp.setup({
   experimental = {
     ghost_text = false,
   },
+  window = {
+    documentation = {
+      winhighlight = 'Normal:CmpNormal,FloatBorder:CmpNormalBorder',
+    },
+  }
 })

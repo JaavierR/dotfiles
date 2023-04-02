@@ -15,6 +15,11 @@ local custom_highlights = {
     TelescopePromptTitle = { fg = "#A8A29E", bg = "none" },
     TelescopeResultsTitle = { fg = "#A8A29E", bg = "none" },
     TelescopePreviewTitle = { fg = "#121212", bg = "#0D9488" },
+
+    -- Cmp
+    PMenu = { fg = "#D5D7E2", bg = "#2B2D3C" },
+    CmpNormalBorder = { fg = "#2B2D3C", bg = "#2B2D3C" },
+    CmpNormal = { fg = "#D5D7E2", bg = "#2B2D3C" },
     -- Floaterm
     Floaterm = { bg = "none" },
     FloatermBorder = { fg = "#383B51", bg = "none" },
