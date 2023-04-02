@@ -1,118 +1,45 @@
-local lsp = require("lsp-zero")
+-- Require lspconfig
+local lspconfig = require('lspconfig')
+-- Setup Mason to automatically install LSP servers
+require('mason').setup()
+require('mason-lspconfig').setup({ automatic_installation = true })
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-  'astro',
-  'volar',
-  'tailwindcss',
-  'intelephense',
-  'jsonls',
-})
-
--- Fix Undefined global 'vim'
-lsp.configure('lua_ls', {
+-- Lua
+lspconfig.lua_ls.setup({
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
-        globals = { 'vim' }
-      }
-    }
-  }
+        globals = { 'vim' },
+      },
+    },
+  },
 })
 
-lsp.configure('volar', {
+-- PHP
+lspconfig.intelephense.setup({ capabilities = capabilities })
+
+-- Vue, JavaScript, TypeScript
+lspconfig.volar.setup({
   capabilities = capabilities,
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+  -- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
+  -- This drastically improves the responsiveness of diagnostic updates on change
+  filetype = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 })
 
-lsp.configure('jsonls', {
+-- Tailwind CSS
+lspconfig.tailwindcss.setup({ capabilities = capabilities })
+
+-- JSON
+lspconfig.jsonls.setup({
+  capabilities = capabilities,
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
     },
   },
-})
-
-local cmp = require('cmp')
-local luasnip = require('luasnip')
-local lspkind = require('lspkind')
-
-require('luasnip/loaders/from_snipmate').lazy_load()
-
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ["<C-l>"] = cmp.mapping(cmp.mapping.complete({
-    reason = cmp.ContextReason.Auto,
-  }), { "i", "c" }),
-  ["<C-n>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_next_item()
-    elseif luasnip.expand_or_jumpable() then
-      luasnip.expand_or_jump()
-    elseif has_words_before() then
-      cmp.complete()
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
-  ["<C-p>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
-      luasnip.jump(-1)
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
-  ['<CR>'] = cmp.mapping.confirm({ select = true }),
-})
-
--- Primeagen config
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  formatting = { format = lspkind.cmp_format() },
-  mapping = cmp_mappings,
-  sources = {
-    { name = 'nvim_lsp',               max_item_count = 200 },
-    { name = 'nvim_lsp_signature_help' },
-    { name = 'luasnip' },
-    { name = 'buffer' },
-    { name = 'path' },
-  },
-  documentation = {
-    max_height = 40,
-    max_width = 60,
-    border = 'rounded',
-    col_offset = 0,
-    side_padding = 1,
-    winhighlight = 'Normal:TelescopeNormal,FloatBorder:TelescopePreviewBorder,CursorLine:Visual,Search:None',
-    zindex = 1001
-  },
-})
-
-lsp.set_preferences({
-  suggest_lsp_servers = false,
-  sign_icons = {
-    error = '',
-    warn = '',
-    hint = '',
-    info = ''
-  }
 })
 
 -- null-ls
@@ -139,23 +66,6 @@ require('null-ls').setup({
 
 require('mason-null-ls').setup({ automatic_installation = true })
 
-lsp.on_attach(function(client, bufnr)
-  local opts = { buffer = bufnr, remap = false }
-
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-end)
-
-lsp.setup()
-
 -- Commands
 vim.api.nvim_create_user_command("Format", function()
   vim.lsp.buf.format({
@@ -166,9 +76,37 @@ vim.api.nvim_create_user_command("Format", function()
   })
 end, {})
 
+-- Diagnostic configuration
 vim.diagnostic.config({
   virtual_text = false,
   float = {
-    source = true
+    source = true,
   }
 })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    -- Keymaps
+    vim.keymap.set('n', '<Leader>D', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations, opts)
+    vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
+  end,
+})
+
+-- Sign configuration
+vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
+vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
+vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
+vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })

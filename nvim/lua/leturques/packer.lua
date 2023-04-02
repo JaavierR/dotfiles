@@ -204,31 +204,36 @@ use({
   end
 })
 
+-- LSP
 use({
-  'VonHeikemen/lsp-zero.nvim',
-  branch = 'v1.x',
+  'neovim/nvim-lspconfig',
   requires = {
-    -- LSP Support
-    'neovim/nvim-lspconfig',             -- Required
-    'williamboman/mason.nvim',           -- Optional
-    'williamboman/mason-lspconfig.nvim', -- Optional
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'b0o/schemastore.nvim',
     'jose-elias-alvarez/null-ls.nvim',
     'jayp0521/mason-null-ls.nvim',
-
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',         -- Required
-    'hrsh7th/cmp-nvim-lsp',     -- Required
-    'hrsh7th/cmp-buffer',       -- Optional
-    'hrsh7th/cmp-path',         -- Optional
-    'saadparwaiz1/cmp_luasnip', -- Optional
-    'hrsh7th/cmp-nvim-lua',     -- Optional
-    'onsails/lspkind-nvim',
-
-    -- Snippets
-    'L3MON4D3/LuaSnip', -- Required
   },
   config = function()
     require('leturques/plugins/lspconfig')
+  end
+})
+
+-- Autocompletion
+use({
+  'hrsh7th/nvim-cmp',
+  requires = {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-nvim-lsp',
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
+    'onsails/lspkind-nvim',
+  },
+  config = function()
+    require('leturques/plugins/cmp')
   end
 })
 
