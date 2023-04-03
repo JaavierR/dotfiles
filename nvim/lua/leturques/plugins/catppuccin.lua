@@ -1,13 +1,10 @@
 local custom_highlights = {
-    Normal = { bg = "none" },
-    NormalFloat = { bg = "none" },
-    FloatBorder = { fg = "#31353F", bg = "none" },
     -- Telescope
     TelescopeNormal = { bg = "none" },
     TelescopePromptNormal = { fg = "#E7E5E4", bg = "none" },
-    TelescopePromptBorder = { fg = "#383B51", bg = "none" },
-    TelescopePreviewBorder = { fg = "#383B51", bg = "none" },
-    TelescopeResultsBorder = { fg = "#383B51", bg = "none" },
+    TelescopePromptBorder = { fg = "#515678", bg = "none" },
+    TelescopePreviewBorder = { fg = "#515678", bg = "none" },
+    TelescopeResultsBorder = { fg = "#515678", bg = "none" },
     -- Selection
     TelescopeSelection = { bg = "#35374b" },
     -- Titles
@@ -15,22 +12,14 @@ local custom_highlights = {
     TelescopePromptTitle = { fg = "#A8A29E", bg = "none" },
     TelescopeResultsTitle = { fg = "#A8A29E", bg = "none" },
     TelescopePreviewTitle = { fg = "#121212", bg = "#0D9488" },
-
-    -- Cmp
-    PMenu = { fg = "#D5D7E2", bg = "#2B2D3C" },
-    CmpNormalBorder = { fg = "#2B2D3C", bg = "#2B2D3C" },
-    CmpNormal = { fg = "#D5D7E2", bg = "#2B2D3C" },
     -- Floaterm
     Floaterm = { bg = "none" },
-    FloatermBorder = { fg = "#383B51", bg = "none" },
+    FloatermBorder = { fg = "#515678", bg = "none" },
     -- NvimTree
-    NvimTreeIndentMarker = { fg = "#383B51" },
-    -- IndentBlank
-    IndentBlanklineChar = { fg = "#383B51" },
+    NvimTreeNormal = { bg = "none" },
 }
 
 require('catppuccin').setup({
-    transparent_background = true,
     flavour = 'frappe',
     highlight_overrides = {
         all = function()
