@@ -6,7 +6,9 @@ local custom_highlights = {
     TelescopePreviewBorder = { fg = "#515678", bg = "none" },
     TelescopeResultsBorder = { fg = "#515678", bg = "none" },
     -- Selection
-    TelescopeSelection = { bg = "#35374b" },
+    TelescopeSelection = { bg = "#212330" },
+    -- Matching
+    TelescopeMatching = { fg = "#f27a93" },
     -- Titles
     TelescopeTitle = { fg = "#A8A29E", bg = "none" },
     TelescopePromptTitle = { fg = "#A8A29E", bg = "none" },
