@@ -114,7 +114,7 @@ use({
   'nvim-telescope/telescope.nvim',
   requires = {
     'nvim-lua/plenary.nvim',
-    'kyazdani42/nvim-web-devicons',
+    'nvim-tree/nvim-web-devicons',
     'nvim-telescope/telescope-live-grep-args.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
   },
@@ -125,8 +125,8 @@ use({
 
 -- File tree sidebar
 use({
-  'kyazdani42/nvim-tree.lua',
-  requires = 'kyazdani42/nvim-web-devicons',
+  'nvim-tree/nvim-tree.lua',
+  requires = 'nvim-tree/nvim-web-devicons',
   config = function()
     require('leturques/plugins/nvim-tree')
   end,
@@ -143,7 +143,7 @@ use({
 -- Status line.
 use({
   'nvim-lualine/lualine.nvim',
-  requires = 'kyazdani42/nvim-web-devicons',
+  requires = 'nvim-tree/nvim-web-devicons',
   config = function()
     require('leturques/plugins/lualine')
   end,
