@@ -248,6 +248,13 @@ use({
   end,
 })
 
+use({
+  'mbbill/undotree',
+  config = function()
+    vim.keymap.set('n', '<Leader>u', ':UndotreeToggle<CR>')
+  end,
+})
+
 -- End of plugins
 vim.cmd([[
   augroup packer_user_config
