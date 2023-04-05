@@ -5,9 +5,6 @@ require('telescope').setup({
     path_display = { truncate = 1 },
     prompt_prefix = '   ',
     selection_caret = '  ',
-    layout_config = {
-      prompt_position = 'bottom',
-    },
     sorting_strategy = 'descending',
     mappings = {
       i = {
