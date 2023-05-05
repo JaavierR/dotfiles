@@ -1,3 +1,5 @@
+source ~/.config/fish/alias.fish
+
 set fish_greeting ""
 
 # Fish syntax highlighting
@@ -22,30 +24,6 @@ set -g fish_color_search_match 'bryellow'  '--background=brblack'
 set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
 set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
-
-alias cat="bat"
-alias vim="nvim"
-alias lla="exa -la"
-alias ltree="exa --tree"
-
-# Git alias
-alias g="git"
-alias ga="git add"
-alias gaa="git add -A"
-alias gs="git status -sb"
-alias gl="git pull"
-alias gf="git fetch --prune"
-alias gp="git push"
-alias gco="git checkout"
-alias gcm="git commit -m"
-alias glog="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
-
-# Laravel
-alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
-
-# Docker
-alias d="docker"
-alias dc="docker compose"
 
 # Install Starship
 starship init fish | source
