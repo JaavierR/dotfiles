@@ -6,8 +6,8 @@ vim.g.maplocalleader = " "
 vim.keymap.set("n", "<Leader>pv", vim.cmd.Ex)
 
 -- When text is wrapped, move by terminal rows, not lines, unless a count is provided.
-vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true }) 
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true }) 
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- Reselect visual selection after indenting.
 vim.keymap.set("v", "<", "<gv")
@@ -62,4 +62,3 @@ vim.keymap.set("v", "<Leader>d", "\"_d")
 vim.keymap.set("n", "q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux popup -T ' project-switcher ' -E tmux-sessionizer<CR>")
 vim.keymap.set("n", "<C-s>", "<cmd>silent !tmux popup -T ' active-session-switcher ' -E tmux-windowizer<CR>")
-
