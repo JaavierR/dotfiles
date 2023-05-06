@@ -34,3 +34,6 @@ alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
 # Docker
 alias d="docker"
 alias dc="docker compose"
+
+# misc
+alias reload="exec fish"
