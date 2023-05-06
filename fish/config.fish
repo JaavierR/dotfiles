@@ -25,6 +25,12 @@ set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
 set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
 
+# Autostart tmux
+if status is-interactive
+and not set -q TMUX
+  tmux new-session -A -s main
+end
+
 # Install Starship
 starship init fish | source
 
