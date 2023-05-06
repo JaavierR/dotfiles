@@ -25,6 +25,10 @@ set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
 set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
 
+function cx
+  cd $argv && l
+end
+
 # Autostart tmux
 if status is-interactive
 and not set -q TMUX
