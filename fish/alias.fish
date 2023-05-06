@@ -1,9 +1,12 @@
 alias cat="bat"
 alias vim="nvim"
-alias lla="exa -la"
-alias ltree="exa --tree"
 alias g="git"
 alias glog="g log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
+
+# Ls replacement
+alias l="exa -l --icons --git -a"
+alias lla="exa -la"
+alias lt="exa --tree --level=2 --long --icons --git"
 
 # Git alias
 abbr -a gs  g status -sb
