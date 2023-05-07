@@ -1,5 +1,10 @@
+# Bat
+# https://github.com/sharkdp/bat
 alias cat="bat"
+# Nevovim
+# https://github.com/neovim/neovim
 alias vim="nvim"
+# Git
 alias g="git"
 alias glog="g log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
 
