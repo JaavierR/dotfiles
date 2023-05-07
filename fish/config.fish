@@ -38,6 +38,12 @@ end
 # Install Starship
 starship init fish | source
 
+# Install zoxide
+# https://github.com/ajeetdsouza/zoxide
+zoxide init fish | source
+
+fish_ssh_agent
+
 # pnpm
 set -gx PNPM_HOME "/home/javier/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
