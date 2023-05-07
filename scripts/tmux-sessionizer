@@ -3,12 +3,20 @@
 # Based on the ThePrimeagen but add tmp folder idea from Jess Archer
 # https://github.com/ThePrimeagen/.dotfiles/blob/904580dfbb18be3f22d224be953a3f58ac513c69/bin/.local/scripts/tmux-sessionizer
 
+# Check if developer folder exists.
+working_dir="$HOME/developer"
+
+if [[ ! -d $working_dir ]]; then
+    working_dir="$HOME/Developer"
+fi
+
+# Check if folder is passed to open in tmux instead of listing all the options.
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    items=$(find ~/developer -mindepth 1 -maxdepth 2 -type d)
+    items=$(find "$working_dir" -mindepth 1 -maxdepth 2 -type d)
     items+=`echo -e "\n/tmp"`
-    selected=$(echo "$items" | fzf --header jump-to-project --height 100%)
+    selected=$(echo "$items" | fzf -d 30% --cycle --ansi --sort --query="$1" --preview="exa --tree --level=1 {}" --header jump-to-project)
 fi
 
 if [[ -z $selected ]]; then
