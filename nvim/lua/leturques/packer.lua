@@ -162,12 +162,14 @@ use({
   'lewis6991/gitsigns.nvim',
   config = function()
     require('gitsigns').setup()
-    vim.keymap.set('n', ']h', ':Gitsigns next_hunk<CR>')
-    vim.keymap.set('n', '[h', ':Gitsigns prev_hunk<CR>')
+    vim.keymap.set('n', ']h', require('gitsigns').next_hunk)
+    vim.keymap.set('n', '[h', require('gitsigns').prev_hunk)
     vim.keymap.set('n', 'gs', ':Gitsigns stage_hunk<CR>')
     vim.keymap.set('n', 'gS', ':Gitsigns undo_stage_hunk<CR>')
     vim.keymap.set('n', 'gp', ':Gitsigns preview_hunk<CR>')
     vim.keymap.set('n', 'gB', ':Gitsigns blame_line<CR>')
+    vim.keymap.set('n', '<leader>td', require('gitsigns').toggle_deleted)
+    vim.keymap.set('n', '<leader>tb', require('gitsigns').toggle_current_line_blame)
   end
 })
 
