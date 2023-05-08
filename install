@@ -12,6 +12,10 @@ ln -s $DOTFILES/fish/alias.fish $HOME/.config/fish/alias.fish
 rm -rf $HOME/.config/fish/functions/fish_ssh_agent.fish
 ln -s $DOTFILES/fish/functions/fish_ssh_agent.fish $HOME/.config/fish/functions/fish_ssh_agent.fish
 
+# Starship config
+rm -rf $HOME/.config/starship.toml
+ln -s $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
+
 # Kitty config
 rm -rf $HOME/.config/kitty
 ln -s $DOTFILES/kitty $HOME/.config/kitty
