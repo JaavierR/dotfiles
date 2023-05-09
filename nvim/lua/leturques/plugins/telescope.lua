@@ -3,7 +3,7 @@ local actions = require('telescope.actions')
 require('telescope').setup({
   defaults = {
     path_display = { truncate = 1 },
-    prompt_prefix = '   ',
+    prompt_prefix = '  ',
     selection_caret = '  ',
     sorting_strategy = 'descending',
     mappings = {
