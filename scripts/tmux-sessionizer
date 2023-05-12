@@ -16,7 +16,7 @@ if [[ $# -eq 1 ]]; then
 else
     items=$(find "$working_dir" -mindepth 1 -maxdepth 2 -type d)
     items+=`echo -e "\n/tmp"`
-    selected=$(echo "$items" | fzf -d 30% --cycle --ansi --sort --query="$1" --preview="exa --tree --level=1 {}" --header jump-to-project)
+    selected=$(echo "$items" | fzf -d 30% --cycle --ansi --sort --query="$1" --preview="exa --tree --level=1 -s type {}" --header jump-to-project)
 fi
 
 if [[ -z $selected ]]; then
