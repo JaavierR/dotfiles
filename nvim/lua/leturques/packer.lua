@@ -210,6 +210,8 @@ use({
   end
 })
 
+use('nvim-treesitter/nvim-treesitter-context')
+
 -- LSP
 use({
   'neovim/nvim-lspconfig',
