@@ -10,7 +10,7 @@ alias glog="g log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen
 
 # Ls replacement
 alias l="exa -l --icons --git -a -s type"
-alias lt="exa --tree --level=2 --long --icons --git"
+alias lt="exa --tree --level=2 --long --icons --git -s type"
 
 # Git alias
 abbr -a gs  g status -sb
