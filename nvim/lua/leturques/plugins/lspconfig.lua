@@ -21,6 +21,9 @@ lspconfig.lua_ls.setup({
 -- PHP
 lspconfig.intelephense.setup({ capabilities = capabilities })
 
+-- -- Python
+-- lspconfig.pyright.setup({ capabilities = capabilities })
+
 -- Vue, JavaScript, TypeScript
 lspconfig.volar.setup({
   capabilities = capabilities,

@@ -13,6 +13,7 @@ $package\
 $lua\
 $nodejs\
 $php\
+$python\
 $cmd_duration\
 $fill\
 $jobs $time\
