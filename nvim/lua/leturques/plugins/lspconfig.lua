@@ -35,6 +35,9 @@ lspconfig.volar.setup({
 -- Tailwind CSS
 lspconfig.tailwindcss.setup({ capabilities = capabilities })
 
+-- Astro
+lspconfig.astro.setup({ capabilities = capabilities })
+
 -- JSON
 lspconfig.jsonls.setup({
   capabilities = capabilities,
