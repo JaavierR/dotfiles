@@ -36,7 +36,14 @@ lspconfig.volar.setup({
 lspconfig.tailwindcss.setup({ capabilities = capabilities })
 
 -- Astro
-lspconfig.astro.setup({ capabilities = capabilities })
+lspconfig.astro.setup({
+  capabilities = capabilities,
+  init_options = {
+    typescript = {
+      tsdk = vim.fs.normalize('~/Library/pnpm/global/5/node_modules/typescript/lib')
+    }
+  },
+})
 
 -- JSON
 lspconfig.jsonls.setup({
