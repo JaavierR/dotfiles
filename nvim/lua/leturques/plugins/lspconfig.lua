@@ -50,33 +50,40 @@ lspconfig.jsonls.setup({
   },
 })
 
+local null_ls = require('null-ls')
+
 -- null-ls
-require('null-ls').setup({
+null_ls.setup({
   sources = {
-    require('null-ls').builtins.diagnostics.eslint_d.with({
+    null_ls.builtins.diagnostics.eslint_d.with({
       condition = function(utils)
         return utils.root_has_file({ '.eslintrc.js' })
       end,
     }),
 
-    require('null-ls').builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
-    require('null-ls').builtins.formatting.eslint_d.with({
+    null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
+    null_ls.builtins.formatting.eslint_d.with({
       condition = function(utils)
         return utils.root_has_file({ '.eslintrc.js' })
       end,
     }),
 
-    require('null-ls').builtins.formatting.prettierd.with({
+    null_ls.builtins.formatting.prettierd.with({
       ondition = function(utils)
         return utils.root_has_file({ '.prettierrc' })
       end
     }),
 
-    require('null-ls').builtins.formatting.black.with({
+    -- Python linting
+    null_ls.builtins.diagnostics.mypy,
+    null_ls.builtins.diagnostics.ruff,
+
+    -- Python formatting
+    null_ls.builtins.formatting.black.with({
       extra_args = { '--line-length', '120' },
     }),
 
-    require('null-ls').builtins.formatting.isort,
+    null_ls.builtins.formatting.isort,
   },
 })
 
