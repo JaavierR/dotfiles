@@ -34,17 +34,10 @@ function ghpr
 end
 
 # Autostart tmux
-if status is-interactive
-and not set -q TMUX
-  tmux new-session -A -s main
-end
-
-# Install Starship
-starship init fish | source
-
-# Install zoxide
-# https://github.com/ajeetdsouza/zoxide
-zoxide init fish | source
+# if status is-interactive
+# and not set -q TMUX
+#   tmux new-session -A -s main
+# end
 
 fish_ssh_agent
 
@@ -55,4 +48,15 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
-fish_ssh_agent
+# Install Starship
+starship init fish | source
+
+# Install zoxide
+# https://github.com/ajeetdsouza/zoxide
+zoxide init fish | source
+
+# Install pyenv
+# https://github.com/pyenv/pyenv
+# https://github.com/pyenv/pyenv-virtualenv
+pyenv init - | source
+pyenv virtualenv-init - | source

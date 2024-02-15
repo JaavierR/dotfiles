@@ -1,9 +1,11 @@
 # Bat
 # https://github.com/sharkdp/bat
 alias cat="bat"
+
 # Nevovim
 # https://github.com/neovim/neovim
 alias vim="nvim"
+
 # Git
 alias g="git"
 alias glog="g log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
@@ -34,6 +36,7 @@ abbr -a gco g checkout
 
 # Laravel
 alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
+alias ar="php artisan"
 
 # Docker
 alias d="docker"

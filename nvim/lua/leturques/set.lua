@@ -49,3 +49,5 @@ vim.opt.undofile = true -- persistent undo
 -- vim.opt.backup = true -- automatically save a backup file
 -- vim.opt.backupdir:remove(".") -- keep backups out of the current directory
 vim.opt.updatetime = 50
+
+vim.g.skip_ts_context_commentstring_module = true
