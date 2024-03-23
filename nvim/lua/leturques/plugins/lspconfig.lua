@@ -62,6 +62,7 @@ null_ls.setup({
     }),
 
     null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
+
     null_ls.builtins.formatting.eslint_d.with({
       condition = function(utils)
         return utils.root_has_file({ '.eslintrc.js' })
@@ -75,12 +76,17 @@ null_ls.setup({
     }),
 
     -- Python linting
-    null_ls.builtins.diagnostics.mypy,
+    null_ls.builtins.diagnostics.mypy.with({
+      extra_args = function()
+        local virtual = os.getenv('VIRTUAL_ENV') or os.getenv('CONDA_PREFIX') or  "/usr"
+        return { '--python-executable', virtual .. '/bin/python' }
+      end,
+    }),
     null_ls.builtins.diagnostics.ruff,
 
     -- Python formatting
     null_ls.builtins.formatting.black.with({
-      extra_args = { '--line-length', '120' },
+      extra_args = { '--line-length', '88' },
     }),
 
     null_ls.builtins.formatting.isort,

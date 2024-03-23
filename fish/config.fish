@@ -59,4 +59,5 @@ zoxide init fish | source
 # https://github.com/pyenv/pyenv
 # https://github.com/pyenv/pyenv-virtualenv
 pyenv init - | source
-pyenv virtualenv-init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
+
