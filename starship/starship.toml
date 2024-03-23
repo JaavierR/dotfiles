@@ -1,3 +1,5 @@
+add_newline = false
+
 palette = "catppuccin_frappe"
 
 format = """
@@ -33,7 +35,7 @@ vicmd_symbol = "[❮](green)"
 
 [git_branch]
 symbol = " "
-format = "on [$symbol$branch]($style) "
+format = "on [$symbol$branch](pink) "
 
 [jobs]
 symbol = ""
