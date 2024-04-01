@@ -15,14 +15,18 @@ alias l="exa -l --icons --git -a -s type"
 alias lt="exa --tree --level=2 --long --icons --git -s type --ignore-glob=\".git|node_modules|.cache|.idea|.vscode|vendor|public|storage|bootstrap|dist|build|node_modules|.next|.nuxt|.venv|.gitignore|.gitmodules|.gitattributes|.gitkeep\""
 
 # Git alias
-abbr -a gs  g status -sb
+abbr -a gst g status -sb
 abbr -a ga  g add
 abbr -a gaa g add -A
 abbr -a gc  g commit
 abbr -a gcm g commit -m
 abbr -a gca g commit --amend
+abbr -a gs  g switch
+abbr -a gsc g switch -c
+abbr -a gr  g restore
+abbr -a gb  g branch
+abbr -a gbd g branch -D
 abbr -a gcl g clone
-abbr -a gco g checkout
 abbr -a gp  g push
 abbr -a gpf g push --force-with-lease
 abbr -a gpl g pull
@@ -33,6 +37,7 @@ abbr -a gr  g rebase -i HEAD~15
 abbr -a gf  g fetch
 abbr -a gfc g findcommit
 abbr -a gfm g findmessage
+abbr -a gco g checkout
 
 # Laravel
 alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
