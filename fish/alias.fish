@@ -45,5 +45,3 @@ alias dc="docker compose"
 # misc
 alias reload="exec fish"
 
-# PhpStorm
-alias pstorm="open -a PhpStorm"
