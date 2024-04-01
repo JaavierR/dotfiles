@@ -24,6 +24,7 @@ abbr -a gca g commit --amend
 abbr -a gcl g clone
 abbr -a gco g checkout
 abbr -a gp  g push
+abbr -a gpf g push --force-with-lease
 abbr -a gpl g pull
 abbr -a gl  g l
 abbr -a gd  g diff
@@ -32,7 +33,6 @@ abbr -a gr  g rebase -i HEAD~15
 abbr -a gf  g fetch
 abbr -a gfc g findcommit
 abbr -a gfm g findmessage
-abbr -a gco g checkout
 
 # Laravel
 alias sail="[ -f sail ] && sh sail || sh vendor/bin/sail"
