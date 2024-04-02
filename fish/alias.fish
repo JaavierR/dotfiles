@@ -23,7 +23,7 @@ abbr -a gcm g commit -m
 abbr -a gca g commit --amend
 abbr -a gs  g switch
 abbr -a gsc g switch -c
-abbr -a gr  g restore
+abbr -a grt g restore
 abbr -a gb  g branch
 abbr -a gbd g branch -D
 abbr -a gcl g clone
