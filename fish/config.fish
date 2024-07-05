@@ -25,6 +25,7 @@ set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
 set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
 
+# Fish functions
 function cx
   cd $argv && l
 end
@@ -48,7 +49,7 @@ end
 fish_ssh_agent
 
 # pnpm
-set -gx PNPM_HOME "/home/javier/.local/share/pnpm"
+set -gx PNPM_HOME "/Users/javier/Library/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
