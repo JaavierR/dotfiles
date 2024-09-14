@@ -18,6 +18,7 @@ alias lt="eza --tree --level=2 --long --icons --git -s type --ignore-glob=\".git
 abbr -a gst g status -sb
 abbr -a ga  g add
 abbr -a gaa g add -A
+abbr -a gap g add -p
 abbr -a gc  g commit
 abbr -a gcm g commit -m
 abbr -a gca g commit --amend
