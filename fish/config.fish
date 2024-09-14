@@ -68,3 +68,9 @@ zoxide init fish | source
 pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
 
+# Enable transience
+function starship_transient_prompt_func
+  starship module character
+end
+
+enable_transience
