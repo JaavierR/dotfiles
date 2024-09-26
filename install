@@ -3,6 +3,10 @@
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
 # Fish config
+rm -rf $HOME/.config/fish/conf.d/fnm.fish
+mkdir -p $HOME/.config/fish/conf.d
+ln -s $DOTFILES/fish/conf.d/fnm.fish $HOME/.config/fish/conf.d/fnm.fish
+
 rm -rf $HOME/.config/fish/config.fish
 ln -s $DOTFILES/fish/config.fish $HOME/.config/fish/config.fish
 
