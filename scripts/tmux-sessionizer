@@ -6,6 +6,7 @@
 # Check if developer folder exists.
 working_dir="$HOME/developer"
 second_dir="$HOME/Herd"
+work_dir="$HOME/Work"
 
 if [[ ! -d $working_dir ]]; then
     working_dir="$HOME/Developer"
@@ -15,7 +16,7 @@ fi
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    items=$(find "$working_dir" "$second_dir" -mindepth 1 -maxdepth 1 -type d)
+    items=$(find "$working_dir" "$second_dir" "$work_dir" -mindepth 1 -maxdepth 1 -type d)
     items+=`echo -e "\n/tmp"`
     selected=$(echo "$items" | fzf -d 30% --cycle --ansi --sort --query="$1" --preview="eza --tree --level=1 -s type {}" --header jump-to-project --pointer="")
 fi
