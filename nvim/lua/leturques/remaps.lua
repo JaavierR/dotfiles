@@ -1,7 +1,3 @@
--- Space is my Leader.
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Go to Vim Explorer
 vim.keymap.set("n", "<Leader>pv", vim.cmd.Ex)
 
