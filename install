@@ -20,10 +20,6 @@ ln -s $DOTFILES/fish/functions/fish_ssh_agent.fish $HOME/.config/fish/functions/
 rm -rf $HOME/.config/starship.toml
 ln -s $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
 
-# Kitty config
-rm -rf $HOME/.config/kitty
-ln -s $DOTFILES/kitty $HOME/.config/kitty
-
 rm -rf $HOME/.tmux.conf
 ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
